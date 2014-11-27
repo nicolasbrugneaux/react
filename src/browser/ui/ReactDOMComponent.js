@@ -131,7 +131,7 @@ function putListener(id, registrationName, listener, transaction) {
   var container = ReactMount.findReactContainerForID(id);
   if (container) {
     var doc = container.nodeType === ELEMENT_NODE_TYPE ?
-      container.ownerDocument :
+      realContainer(container) :
       container;
     listenTo(registrationName, doc);
   }
